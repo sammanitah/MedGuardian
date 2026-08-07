@@ -1,3 +1,4 @@
+# pyright: reportMissingImports=false
 """
 Gemini API client — singleton wrapper with retry logic.
 
@@ -16,7 +17,7 @@ import logging
 from functools import lru_cache
 
 try:
-    import PIL.Image
+    import PIL.Image  # type: ignore[import-not-found]
 except ImportError:  # pragma: no cover
     PIL = None  # type: ignore[assignment]
 
@@ -38,7 +39,7 @@ class GeminiClient:
     def _get_client(self):
         """Return a configured google.genai client."""
         try:
-            from google import genai
+            from google import genai  # type: ignore[import-not-found]
             return genai.Client(api_key=self._api_key)
         except ImportError:
             raise ImportError(
@@ -54,7 +55,7 @@ class GeminiClient:
         client = self._get_client()
 
         def _call() -> str:
-            from google.genai import types as genai_types
+            from google.genai import types as genai_types  # type: ignore[import-not-found]
             config = None
             if system_instruction:
                 config = genai_types.GenerateContentConfig(
@@ -93,6 +94,8 @@ class GeminiClient:
         client = self._get_client()
 
         def _call() -> str:
+            if PIL is None:
+                raise RuntimeError("PIL/Pillow library is not available.")
             img = PIL.Image.open(io.BytesIO(image_bytes))
             response = client.models.generate_content(
                 model=self._model_name,
