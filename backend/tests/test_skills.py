@@ -1,6 +1,4 @@
 """Unit tests for all custom skills (Checkpoint 5)."""
-import json
-
 import pytest
 
 from backend.core.base_skill import SkillInput

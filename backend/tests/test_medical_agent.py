@@ -1,6 +1,4 @@
 """Unit tests for MedicalAnalysisAgent and its sub-agents."""
-import pytest
-
 from backend.tests.conftest import (
     SAMPLE_DIAGNOSIS,
     SAMPLE_EXPLANATION,

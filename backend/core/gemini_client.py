@@ -90,7 +90,6 @@ class GeminiClient:
         client = self._get_client()
 
         def _call() -> str:
-            from google.genai import types as genai_types
             img = PIL.Image.open(io.BytesIO(image_bytes))
             response = client.models.generate_content(
                 model=self._model_name,
