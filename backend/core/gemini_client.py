@@ -15,7 +15,10 @@ import io
 import logging
 from functools import lru_cache
 
-import PIL.Image
+try:
+    import PIL.Image
+except ImportError:  # pragma: no cover
+    PIL = None  # type: ignore[assignment]
 
 from backend.core.config import get_settings
 
