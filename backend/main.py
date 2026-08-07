@@ -1,3 +1,4 @@
+# pyright: reportMissingImports=false
 """
 Med Guardian — FastAPI application entry point.
 
