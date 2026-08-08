@@ -1,6 +1,6 @@
 'use client';
 import { useCallback, useState } from 'react';
-import { Upload, FileText, Image, X } from 'lucide-react';
+import { Upload, FileText, Image as ImageIcon, X } from 'lucide-react';
 
 interface DropZoneProps {
   onFile: (file: File) => void;
@@ -74,7 +74,7 @@ export default function DropZone({ onFile, file, disabled }: DropZoneProps) {
               background: 'rgba(16,185,129,0.15)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}>
-              {isImage ? <Image size={28} color="var(--severity-success)" /> : <FileText size={28} color="var(--severity-success)" />}
+              {isImage ? <ImageIcon size={28} color="var(--severity-success)" /> : <FileText size={28} color="var(--severity-success)" />}
             </div>
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontWeight: 600, color: 'var(--text-primary)', marginBottom: 4 }}>{file.name}</div>
