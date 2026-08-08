@@ -4,7 +4,9 @@
  */
 import type { AgentInfo, AnalysisReport } from './types';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
+const API_BASE = (
+  process.env.NEXT_PUBLIC_API_URL ?? 'https://medguardian-backend-eja3.onrender.com'
+).replace(/\/$/, '');
 
 class ApiError extends Error {
   constructor(

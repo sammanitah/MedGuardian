@@ -121,8 +121,8 @@ pip install -r requirements.txt
 uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-API available at: http://localhost:8000  
-Swagger UI: http://localhost:8000/docs
+API available at: http://localhost:8000 (Production: https://medguardian-backend-eja3.onrender.com)  
+Swagger UI: http://localhost:8000/docs (Production: https://medguardian-backend-eja3.onrender.com/docs)
 
 ### 3. Frontend
 
@@ -130,7 +130,7 @@ Swagger UI: http://localhost:8000/docs
 cd frontend
 npm install
 # Create frontend/.env.local with:
-echo "NEXT_PUBLIC_API_URL=http://localhost:8000" > .env.local
+echo "NEXT_PUBLIC_API_URL=https://medguardian-backend-eja3.onrender.com" > .env.local
 npm run dev
 ```
 
